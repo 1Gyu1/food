@@ -1,16 +1,18 @@
-import random
-print("오늘 점심 머먹지")
 
-#메뉴 리스트를 만들어 보자
-menu = ["짜장면","짬뽕","라면","김밥","돈가스"]
+from tkinter import *
+import os
 
-print(menu)
+print (os.path.dirname(os.path.realpath(__file__)) ) #프로젝트 소스코드 파일 경로 출력
 
-for i in menu:
-    print(i)
+root=Tk()
+root.title("오늘의 추천 메뉴")
+root.geometry("1024x840")
+root.resizable(1, 1)
 
-print("당신의 취향을 분석한 결과 이 중에서 당신이 제일 좋아하는 메뉴는")
+#imgPath = r"라면.gif"
+image=PhotoImage(file="라면.jpg") #PhotoImage를 통한 이미지 지정
+label=Label(root, image=image) #라벨 생성, 라벨에는 앞서 선언한 이미지가 들어감.
+label.pack()
 
-a = random.randint(0,4)
-print("{} 입니다".format(menu[a])) 
-#
+root.mainloop()
+
