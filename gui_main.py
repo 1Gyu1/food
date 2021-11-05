@@ -21,7 +21,7 @@ btn1 = Button(root, text="추천메뉴", command=pressed)
 btn1.grid(column=0, row=0)
 # btn1.pack()
 
-label = Label(root, text="두구 두구", font=("돋음", 10))
+label = Label(root, text="따란!~~~", font=("돋음", 10))
 label.grid(column=0, row=1)
 
 
