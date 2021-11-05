@@ -1,18 +1,28 @@
-
 from tkinter import *
-import os
+import random
 
-print (os.path.dirname(os.path.realpath(__file__)) ) #프로젝트 소스코드 파일 경로 출력
+menu = ["짜장면", "짬뽕", "라면", "김밥", "돈까스"]
 
-root=Tk()
-root.title("오늘의 추천 메뉴")
-root.geometry("1024x840")
-root.resizable(1, 1)
+def pressed(): # 버튼 클릭 이벤트
+    foodname = random.choice(menu)
+    msg = "오늘의 메뉴는 {}".format(foodname)
+    label.configure(text=msg)
+    img = PhotoImage(file='{}.png'.format(foodname)) #이미지 읽고
+    lbl = Label(image=img) #이미지 넣어
+    lbl.image = img  # 레퍼런스 추가
+    lbl.grid(column=0, row=2)
+    # lbl.pack()
 
-#imgPath = r"라면.gif"
-image=PhotoImage(file="라면.jpg") #PhotoImage를 통한 이미지 지정
-label=Label(root, image=image) #라벨 생성, 라벨에는 앞서 선언한 이미지가 들어감.
-label.pack()
+root = Tk()
+root.title("오늘 머 먹지?")
+root.geometry("540x380")
+
+btn1 = Button(root, text="추천메뉴", command=pressed)
+btn1.grid(column=0, row=0)
+# btn1.pack()
+
+label = Label(root, text="두구 두구", font=("돋음", 10))
+label.grid(column=0, row=1)
+
 
 root.mainloop()
-
